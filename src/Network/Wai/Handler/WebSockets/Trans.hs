@@ -56,8 +56,9 @@ runClientAppT :: MonadBaseControlIdentity IO m
 runClientAppT clientAppT = liftBaseWithIdentity $ \ runInBase ->
   return $ runInBase . clientAppT
 
--- | Upgrade a 'ServerAppT' to a 'MiddlewareT'.
--- This function is based on 'websocketsOr'.
+{- | Upgrade a 'ServerAppT' to a 'MiddlewareT'.
+  This function is based on 'websocketsOr'.
+-}
 websocketsOrT :: MonadBaseControlIdentity IO m
               => ConnectionOptions
               -> ServerAppT m
