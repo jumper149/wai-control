@@ -38,7 +38,7 @@ runApplicationT appT = liftBaseWithIdentity $ \ runInBase ->
 -- | A type synonym for a wai 'Middleware' which has been lifted from the 'IO' monad.
 type MiddlewareT m = ApplicationT m -> ApplicationT m
 
--- | Lift a wai 'Middleware to an 'MiddlewareT'.
+-- | Lift a wai 'Middleware' to a 'MiddlewareT'.
 liftMiddleware :: MonadBaseControlIdentity IO m
                => Middleware
                -> MiddlewareT m
@@ -46,7 +46,7 @@ liftMiddleware mid appT request respond = do
   app <- runApplicationT appT
   liftBaseWithIdentity $ \ runInBase -> mid app request $ runInBase . respond
 
--- | Run an 'MiddlewareT' in the inner monad.
+-- | Run a 'MiddlewareT' in the inner monad.
 runMiddlewareT :: MonadBaseControlIdentity IO m
                => MiddlewareT m
                -> m Middleware

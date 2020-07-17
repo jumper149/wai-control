@@ -24,7 +24,7 @@ import Network.WebSockets
 
 import Network.Wai.Trans
 
--- | A type synonym for a websockets 'ServerApp' which has been lifted from the IO monad.
+-- | A type synonym for a websockets 'ServerApp' which has been lifted from the 'IO' monad.
 type ServerAppT m = PendingConnection -> m ()
 
 -- | Lift a websockets 'ServerApp' to a 'ServerAppT'.
@@ -40,7 +40,7 @@ runServerAppT :: MonadBaseControlIdentity IO m
 runServerAppT serverAppT = liftBaseWithIdentity $ \ runInBase ->
   return $ runInBase . serverAppT
 
--- | A type synonym for a websockets 'ClientApp' which has been lifted from the IO monad.
+-- | A type synonym for a websockets 'ClientApp' which has been lifted from the 'IO' monad.
 type ClientAppT m a = Connection -> m a
 
 -- | Lift a websockets 'ClientApp' to a 'ClientAppT'.
