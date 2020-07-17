@@ -1,7 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
 
--- TODO: credit wai-transformers: https://github.com/athanclark/wai-transformers
-
 module Network.Wai.Trans (
 
   -- * Application

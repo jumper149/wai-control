@@ -17,8 +17,6 @@ module Network.Wai.Handler.WebSockets.Trans (
 
 ) where
 
--- TODO: credit wai-transformers: https://github.com/athanclark/wai-transformers
-
 import Control.Monad.Base
 import Control.Monad.Trans.Control.Identity
 import Network.Wai.Handler.WebSockets
