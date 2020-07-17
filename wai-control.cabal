@@ -29,8 +29,8 @@ library
   exposed-modules:     Network.Wai.Trans
                        Network.Wai.Handler.WebSockets.Trans
   build-depends:       base                   >= 4.5      && < 5
+                     , monad-control-identity >= 0.1.0.1  && < 0.2
                      , transformers-base      >= 0.4.5.2  && < 0.5
-                     , monad-control-identity >= 0.1.0.1  && < 1.1
                      , wai                    >= 3.2      && < 3.3
                      , wai-websockets         >= 3.0.1.2  && < 3.1
                      , websockets             >= 0.12.5.3 && < 0.13
