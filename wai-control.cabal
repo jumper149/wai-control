@@ -3,14 +3,17 @@ version:             0.1.0.0
 synopsis:            Give wai Applications an IO-based inner monad
 description:         This package allows IO-based monads in covariant and contravariant positions
                      of wai Applications.
+                     .
                      The monads, which are applicable for this, need to have MonadBaseControl IO
-                     instances. This are for most cases ReaderT stacks based on the IO monad.
+                     instances.
+                     This are for most cases ReaderT stacks based on the IO monad.
                      This package will especially be of interest, if you are sharing access to
                      MVars, TVars or other concurrent data, while controlling that access with
                      monad transformers.
-
-                     This package is based on wai-transformers by Athan Clark:
-                     https://github.com/athanclark/wai-transformers
+                     .
+                     This package is based on
+                     <https://github.com/athanclark/wai-transformers wai-transformers> by Athan
+                     Clark.
 license:             BSD3
 license-file:        LICENSE
 author:              Felix Springer
