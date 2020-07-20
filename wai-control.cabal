@@ -1,11 +1,11 @@
 name:                wai-control
 version:             0.1.0.1
-synopsis:            Give wai Applications an IO-based inner monad
-description:         This package allows IO-based monads in covariant and contravariant positions
+synopsis:            Run wai Applications in IO based monads
+description:         This package allows IO based monads in covariant and contravariant positions
                      of wai Applications.
                      .
-                     The monads, which are applicable for this, need to have MonadBaseControl IO
-                     instances.
+                     The monads, which are applicable for this, need to have
+                     MonadBaseControlIdentity IO instances.
                      This are for most cases ReaderT stacks based on the IO monad.
                      This package will especially be of interest, if you are sharing access to
                      MVars, TVars or other concurrent data, while controlling that access with
