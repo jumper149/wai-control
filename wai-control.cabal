@@ -2,15 +2,14 @@ name:                wai-control
 version:             0.1.0.1
 synopsis:            Run wai Applications in IO based monads
 description:         This package allows 'IO' based monads in covariant and contravariant positions
-                     of <https://hackage.haskell.org/package/wai wai> 'Network.Wai.Application's.
+                     of <https://hackage.haskell.org/package/wai wai> 'Application's.
                      .
                      The monads, which are applicable for this, need to have
-                     'Control.Monad.Trans.Control.Identity.MonadBaseControlIdentity' 'IO' instances.
-                     This are for most cases 'Control.Monad.Trans.Reader.ReaderT' stacks based on
-                     the 'IO' monad.
+                     'MonadBaseControlIdentity' 'IO' instances.
+                     This are for most cases 'ReaderT' stacks based on the 'IO' monad.
                      This package will especially be of interest, if you are sharing access to
-                     'Control.Concurrent.MVar.MVar's, 'Control.Concurrent.STM.TVar.TVar's or other
-                     concurrent data, while controlling that access with monad transformers.
+                     'MVar's, 'TVar's or other concurrent data, while controlling that access with
+                     monad transformers.
                      .
                      This package is based on
                      <https://hackage.haskell.org/package/wai-transformers wai-transformers> by Athan
