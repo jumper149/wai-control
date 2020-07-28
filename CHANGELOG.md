@@ -1,5 +1,9 @@
 # Revision history for wai-control
 
+## 0.1.0.2 -- 2020-07-28
+
+* Improve description.
+
 ## 0.1.0.1 -- 2020-07-17
 
 * Specify versions of dependencies more accurately.

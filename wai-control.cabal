@@ -1,5 +1,5 @@
 name:                wai-control
-version:             0.1.0.1
+version:             0.1.0.2
 synopsis:            Run wai Applications in IO based monads
 description:         This package allows 'IO' based monads in covariant and contravariant positions
                      of <https://hackage.haskell.org/package/wai wai> 'Application's.
