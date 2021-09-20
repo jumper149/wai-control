@@ -12,11 +12,20 @@ module Network.Wai.Trans (
 , liftMiddleware
 , runMiddlewareT
 
+  -- * Re-exports
+, Application
+, Middleware
+, Request
+, Response
+, ResponseReceived
+, MonadBaseControlIdentity
 ) where
 
-import Control.Monad.Base
+import Control.Monad.Base ( MonadBase(liftBase) )
 import Control.Monad.Trans.Control.Identity
+    ( MonadBaseControlIdentity(..) )
 import Network.Wai
+    ( Application, Middleware, Request, Response, ResponseReceived )
 
 -- | A type synonym for a wai 'Application' which has been lifted from the 'IO' monad.
 type ApplicationT m = Request -> (Response -> m ResponseReceived) -> m ResponseReceived
