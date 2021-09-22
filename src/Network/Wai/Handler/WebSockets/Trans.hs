@@ -15,14 +15,12 @@ module Network.Wai.Handler.WebSockets.Trans (
 -- * WebSocket
 , websocketsOrT
 
--- * Re-exports
+-- * Websocket type Re-exports
 , ServerApp
 , ClientApp
 , Connection
 , ConnectionOptions
 , PendingConnection
-, MonadBase
-, MonadBaseControlIdentity
 ) where
 
 import Control.Monad.Base ( MonadBase(..) )

@@ -12,12 +12,8 @@ module Network.Wai.Trans (
 , liftMiddleware
 , runMiddlewareT
 
-  -- * Re-exports
-, Application
-, Middleware
-, Request
-, Response
-, ResponseReceived
+  -- * Typeclass Re-exports
+, MonadBase
 , MonadBaseControlIdentity
 ) where
 
