@@ -15,14 +15,27 @@ module Network.Wai.Handler.WebSockets.Trans (
 -- * WebSocket
 , websocketsOrT
 
+-- * Websocket type Re-exports
+, ServerApp
+, ClientApp
+, Connection
+, ConnectionOptions
+, PendingConnection
 ) where
 
-import Control.Monad.Base
+import Control.Monad.Base ( MonadBase(..) )
 import Control.Monad.Trans.Control.Identity
-import Network.Wai.Handler.WebSockets
+    ( MonadBaseControlIdentity(..) )
+import Network.Wai.Handler.WebSockets ( websocketsOr )
 import Network.WebSockets
+    ( ConnectionOptions,
+      ServerApp,
+      PendingConnection,
+      ClientApp,
+      Connection )
 
 import Network.Wai.Trans
+    ( MiddlewareT, liftApplication, runApplicationT )
 
 -- | A type synonym for a websockets 'ServerApp' which has been lifted from the 'IO' monad.
 type ServerAppT m = PendingConnection -> m ()

@@ -5,7 +5,7 @@ let
     ref = "master";
     rev = "15949d07dedbf95ad6536ac84be4d2f18dfa9523";
   };
-  ghc = pkgs.haskell.packages.ghc883.override {
+  ghc = pkgs.haskell.packages.ghc884.override {
     overrides = self: super: {
       monad-control-identity = self.callCabal2nix "monad-control-identity" "${src-monad-control-identity}" {};
     };
