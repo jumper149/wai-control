@@ -17,8 +17,7 @@ module Network.Wai.Handler.WebSockets.Trans (
 
 ) where
 
-import Control.Monad.Base
-import Control.Monad.Trans.Control.Identity
+import Control.Monad.IO.Unlift
 import Network.Wai.Handler.WebSockets
 import Network.WebSockets
 
@@ -28,38 +27,38 @@ import Network.Wai.Trans
 type ServerAppT m = PendingConnection -> m ()
 
 -- | Lift a websockets 'ServerApp' to a 'ServerAppT'.
-liftServerApp :: MonadBase IO m
+liftServerApp :: MonadIO m
               => ServerApp
               -> ServerAppT m
-liftServerApp serverApp = liftBase . serverApp
+liftServerApp serverApp = liftIO . serverApp
 
 -- | Run a 'ServerAppT' in the inner monad.
-runServerAppT :: MonadBaseControlIdentity IO m
+runServerAppT :: MonadUnliftIO m
               => ServerAppT m
               -> m ServerApp
-runServerAppT serverAppT = liftBaseWithIdentity $ \ runInBase ->
-  return $ runInBase . serverAppT
+runServerAppT serverAppT = withRunInIO $ \ runInIO ->
+  return $ runInIO . serverAppT
 
 -- | A type synonym for a websockets 'ClientApp' which has been lifted from the 'IO' monad.
 type ClientAppT m a = Connection -> m a
 
 -- | Lift a websockets 'ClientApp' to a 'ClientAppT'.
-liftClientApp :: MonadBase IO m
+liftClientApp :: MonadIO m
               => ClientApp a
               -> ClientAppT m a
-liftClientApp clientApp = liftBase . clientApp
+liftClientApp clientApp = liftIO . clientApp
 
 -- | Run a 'ClientAppT' in the inner monad.
-runClientAppT :: MonadBaseControlIdentity IO m
+runClientAppT :: MonadUnliftIO m
               => ClientAppT m a
               -> m (ClientApp a)
-runClientAppT clientAppT = liftBaseWithIdentity $ \ runInBase ->
-  return $ runInBase . clientAppT
+runClientAppT clientAppT = withRunInIO $ \ runInIO ->
+  return $ runInIO . clientAppT
 
 {- | Upgrade a 'ServerAppT' to a 'MiddlewareT'.
   This function is based on 'websocketsOr'.
 -}
-websocketsOrT :: MonadBaseControlIdentity IO m
+websocketsOrT :: MonadUnliftIO m
               => ConnectionOptions
               -> ServerAppT m
               -> MiddlewareT m

@@ -5,7 +5,7 @@ description:         This package allows 'IO' based monads in covariant and cont
                      of <https://hackage.haskell.org/package/wai wai> 'Application's.
                      .
                      The monads, which are applicable for this, need to have
-                     'MonadBaseControlIdentity' 'IO' instances.
+                     'MonadUnliftIO' instances.
                      This are for most cases 'ReaderT' stacks based on the 'IO' monad.
                      This package will especially be of interest, if you are sharing access to
                      'MVar's, 'TVar's or other concurrent data, while controlling that access with
@@ -29,8 +29,7 @@ library
   exposed-modules:     Network.Wai.Trans
                        Network.Wai.Handler.WebSockets.Trans
   build-depends:       base                   >= 4.5      && < 5
-                     , monad-control-identity >= 0.1.0.1  && < 0.2
-                     , transformers-base      >= 0.4.5.2  && < 0.5
+                     , unliftio-core          >= 0.2      && < 0.3
                      , wai                    >= 3.2      && < 3.3
                      , wai-websockets         >= 3.0.1.2  && < 3.1
                      , websockets             >= 0.12.5.3 && < 0.13
