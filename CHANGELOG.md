@@ -1,5 +1,9 @@
 # Revision history for wai-control
 
+## 0.2.0.1 -- 2026-04-02
+
+* Update dependency version bounds.
+
 ## 0.2.0.0 -- 2022-07-04
 
 * Replace the 'monad-control-identity' dependency with 'unliftio-core'.
